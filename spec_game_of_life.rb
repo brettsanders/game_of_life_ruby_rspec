@@ -35,6 +35,10 @@ describe 'Game of life' do
     it 'should respond to proper methods' do
       subject.should respond_to(:alive)
     end
+
+    it 'should initialize properly' do
+      subject.alive.should be_false
+    end
   end
 
 end
