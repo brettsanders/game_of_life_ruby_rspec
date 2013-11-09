@@ -13,6 +13,7 @@ describe 'Game of life' do
       it 'should respond to proper methods' do
         subject.should respond_to(:rows)
         subject.should respond_to(:cols)
+        subject.should respond_to(:cell_grid)
       end
   end
 end
