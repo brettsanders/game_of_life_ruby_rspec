@@ -45,4 +45,12 @@ describe 'Game of life' do
     end
   end
 
+  context 'Game' do
+    subject { Game.new }
+
+    it 'should create a new game object' do
+      subject.is_a?(Game).should be_true
+    end
+  end
+
 end
