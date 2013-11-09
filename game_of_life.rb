@@ -1,6 +1,10 @@
 # Basic file
 
 class Game
+  attr_accessor :world, :seeds
+  def initialize(world, seeds)
+
+  end
 end
 
 class World

@@ -51,6 +51,11 @@ describe 'Game of life' do
     it 'should create a new game object' do
       subject.is_a?(Game).should be_true
     end
+
+    it 'should respond to proper methods' do
+      subject.should respond_to(:world)
+      subject.should respond_to(:seeds)
+    end
   end
 
 end
