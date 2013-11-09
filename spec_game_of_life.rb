@@ -4,6 +4,9 @@ require 'rspec'
 require_relative 'game_of_life.rb'
 
 describe 'Game of life' do
+  # creates new world object each time world is referenced
+  let!(:world) { World.new }
+
   context 'World' do
     subject { World.new }
 
@@ -63,6 +66,11 @@ describe 'Game of life' do
       subject.seeds.is_a?(Array).should be_true
     end
 
+    it 'should plant seeds properly' do
+      game = Game.new(world, [[1,2], [0,2]])
+      world.cell_grid[1][2].should be_alive
+      world.cell_grid[0][2].should be_alive
+    end
   end
 
 end
