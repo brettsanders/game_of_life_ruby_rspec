@@ -17,7 +17,7 @@ class World
 end
 
 class Cell
-  attr_accessor :alive
+  attr_accessor :alive, :x, :y
 
   def initialize
     @alive = false
