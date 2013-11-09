@@ -8,8 +8,8 @@ class World
     @cols = cols
 
     @cell_grid = Array.new(rows) do |row|
-        Array.new(cols) do |col|
-        end
+      Array.new(cols) do |col|
+      end
     end
   end
 
