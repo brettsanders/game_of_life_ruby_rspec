@@ -17,6 +17,7 @@ describe 'Game of life' do
       subject.should respond_to(:rows)
       subject.should respond_to(:cols)
       subject.should respond_to(:cell_grid)
+      subject.should respond_to(:neighbours_around_cell)
     end
     it 'should create proper cell grid on initialization' do
       subject.cell_grid.is_a?(Array).should be_true
