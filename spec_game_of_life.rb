@@ -22,4 +22,12 @@ describe 'Game of life' do
       end
     end
   end
+
+  context 'Cell' do
+    subject { Cell.new }
+    it 'should create a new cell object' do
+      subject.is_a?(Cell).should be_true
+    end
+  end
+
 end
