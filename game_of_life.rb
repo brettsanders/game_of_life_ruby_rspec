@@ -2,6 +2,10 @@
 
 class Game
   attr_accessor :world, :seeds
+
+  # seeds initialized like:
+  # [[0,1],[1,2]] ... y,x
+  # a bit confusing
   def initialize(world=World.new, seeds=[])
     @world = world
     @seeds = seeds
