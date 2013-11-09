@@ -31,6 +31,10 @@ describe 'Game of life' do
     it 'should create a new cell object' do
       subject.is_a?(Cell).should be_true
     end
+
+    it 'should respond to proper methods' do
+      subject.should respond_to(:alive)
+    end
   end
 
 end
