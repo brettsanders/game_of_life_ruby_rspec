@@ -19,6 +19,9 @@ describe 'Game of life' do
       subject.cell_grid.is_a?(Array).should be_true
       subject.cell_grid.each do |row|
         row.is_a?(Array).should be_true
+        row.each do |col|
+          col.is_a?(Cell).should be_true
+        end
       end
     end
   end
