@@ -40,6 +40,8 @@ describe 'Game of life' do
 
     it 'should initialize properly' do
       subject.alive.should be_false
+      subject.x.should == 0
+      subject.y.should == 0
     end
   end
 
