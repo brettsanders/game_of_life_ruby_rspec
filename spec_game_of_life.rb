@@ -36,6 +36,7 @@ describe 'Game of life' do
       subject.should respond_to(:alive)
       subject.should respond_to(:x)
       subject.should respond_to(:y)
+      subject.should respond_to(:alive?)
     end
 
     it 'should initialize properly' do
