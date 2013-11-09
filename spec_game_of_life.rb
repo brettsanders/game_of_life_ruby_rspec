@@ -56,6 +56,12 @@ describe 'Game of life' do
       subject.should respond_to(:world)
       subject.should respond_to(:seeds)
     end
+
+    it 'should initialize properly' do
+      subject.world.is_a?(World).should be_true
+      subject.seeds.is_a?(Array).should be_true
+    end
+
   end
 
 end
