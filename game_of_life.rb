@@ -38,6 +38,21 @@ class World
       candidate = self.cell_grid[cell.y - 1][cell.x]
       live_neighbours << candidate if candidate.alive?
     end
+
+    # North-East
+
+    # East
+
+    # South-East
+
+    # South
+
+    # South-West
+
+    # West
+
+    # North-West
+
     live_neighbours
   end
 

@@ -36,6 +36,20 @@ describe 'Game of life' do
       subject.cell_grid[cell.y - 1][cell.x].alive = true
       subject.live_neighbours_around_cell(cell).count.should == 1
     end
+
+    # North-East
+
+    # East
+
+    # South-East
+
+    # South
+
+    # South-West
+
+    # West
+
+    # North-West
   end
 
   context 'Cell' do
