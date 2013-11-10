@@ -52,6 +52,10 @@ class World
     end
 
     # South-East
+    if cell.y < (rows - 1) && cell.x < (cols - 1)
+      candidate = self.cell_grid[cell.y + 1][cell.x + 1]
+      live_neighbours << candidate if candidate.alive?
+    end
 
     # South
 
