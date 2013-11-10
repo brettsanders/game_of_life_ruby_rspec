@@ -55,6 +55,10 @@ describe 'Game of life' do
     end
 
     # South
+    it 'should detect a live neighbour to the South' do
+      subject.cell_grid[cell.y + 1][cell.x].alive = true
+      subject.live_neighbours_around_cell(cell).count.should == 1
+    end
 
     # South-West
 
