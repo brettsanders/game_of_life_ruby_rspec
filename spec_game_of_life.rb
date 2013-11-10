@@ -129,4 +129,21 @@ describe 'Game of life' do
     end
   end
 
+  context 'Rules' do
+
+  let!(:game) { Game.new }
+
+    context 'Rule 1: Any live cell with fewer than two nive neighbours dies, as if caused by underpopulation' do
+
+      it 'Should kill a live cell with 1 live neighbour' do
+        # seeds are y,x values
+        game = Game.new(world, [[1,0], [2,0]])
+        game.tick!
+        world.cell_grid[1][0].should be_dead
+        world.cell_grid[2][0].should be_dead
+      end
+
+    end
+  end
+
 end

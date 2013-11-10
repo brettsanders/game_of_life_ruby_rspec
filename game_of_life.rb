@@ -14,6 +14,16 @@ class Game
       world.cell_grid[seed[0]][seed[1]].alive = true
     end
   end
+
+  def tick!
+    world.cells.each do |cell|
+
+      # Rule 1:
+      if cell.alive? && world.live_neighbours_around_cell(cell).count < 2
+        cell.die!
+      end
+    end
+  end
 end
 
 class World
@@ -99,5 +109,9 @@ class Cell
 
   def alive?; alive; end
   def dead?; !alive; end
+
+  def die!
+    @alive = false
+  end
 
 end
