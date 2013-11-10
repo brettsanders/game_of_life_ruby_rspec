@@ -158,6 +158,26 @@ describe 'Game of life' do
       end
     end
 
-  end
+    context 'Rule 2: Any live cell with 2 or 3 live neighbours lives on to the next generation' do
+      it 'should keep alive live cells with 2 neighbours to the next generation' do
+        game = Game.new(world, [[0, 1], [1, 1], [2, 1]])
+        world.live_neighbours_around_cell(world.cell_grid[1][1]).count.should == 2
+        game.tick!
+        world.cell_grid[0][1].should be_dead
+        world.cell_grid[1][1].should be_alive
+        world.cell_grid[2][1].should be_dead
+      end
 
+      it 'should keep alive cells with 3 neighbours to the next generation' do
+        game = Game.new(world, [[0, 1], [1, 1], [2, 1], [2, 2]])
+        world.live_neighbours_around_cell(world.cell_grid[1][1]).count.should == 3
+        game.tick!
+        world.cell_grid[0][1].should be_dead
+        world.cell_grid[1][1].should be_alive
+        world.cell_grid[2][1].should be_alive
+        world.cell_grid[2][2].should be_alive
+      end
+    end
+
+  end
 end
