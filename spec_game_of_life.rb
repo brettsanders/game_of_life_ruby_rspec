@@ -66,8 +66,11 @@ describe 'Game of life' do
       subject.live_neighbours_around_cell(cell).count.should == 1
     end
 
-
     # West
+    it 'should detect a live neighbour to the West' do
+      subject.cell_grid[cell.y][cell.x - 1].alive = true
+      subject.live_neighbours_around_cell(cell).count.should == 1
+    end
 
     # North-West
   end
