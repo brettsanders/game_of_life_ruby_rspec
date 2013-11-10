@@ -16,6 +16,8 @@ class GameOfLifeWindow < Gosu::Window
   def draw
   end
 
+  def needs_cursor?; true; end
+
 end
 
 GameOfLifeWindow.new.show
