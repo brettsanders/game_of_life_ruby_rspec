@@ -16,13 +16,23 @@ class Game
   end
 
   def tick!
-    world.cells.each do |cell|
+    dead_cells_to_revive = []
+    live_cells_to_die  = []
 
-      # Rule 1:
-      if cell.alive? && world.live_neighbours_around_cell(cell).count < 2
-        cell.die!
+    world.cells.each do |cell|
+      # Rule 1: live cells with less than 2 neighbours die
+      if cell.alive? and world.live_neighbours_around_cell(cell).count < 2
+        live_cells_to_die << cell
       end
+      # Rule 2: live cells with 2 or 3 neighbours stay alive
+      if cell.alive? and ([2, 3].include? world.live_neighbours_around_cell(cell).count)
+        # don't do anything
+      end
+
     end
+
+    # kill off the cells
+    live_cells_to_die.each { |cell| cell.die! }
   end
 end
 
@@ -112,6 +122,10 @@ class Cell
 
   def die!
     @alive = false
+  end
+
+  def revive!
+    @alive = true
   end
 
 end
