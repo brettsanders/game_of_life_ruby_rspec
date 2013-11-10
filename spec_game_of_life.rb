@@ -13,12 +13,14 @@ describe 'Game of life' do
     it 'should create a new world object' do
       subject.is_a?(World).should be_true
     end
+
     it 'should respond to proper methods' do
       subject.should respond_to(:rows)
       subject.should respond_to(:cols)
       subject.should respond_to(:cell_grid)
       subject.should respond_to(:live_neighbours_around_cell)
     end
+
     it 'should create proper cell grid on initialization' do
       subject.cell_grid.is_a?(Array).should be_true
       subject.cell_grid.each do |row|

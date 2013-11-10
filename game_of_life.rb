@@ -45,7 +45,8 @@ class Cell
     @y = y
   end
 
-  def alive?
-    alive
-  end
+  def alive?; alive; end
+
+  def dead?; !alive; end
+
 end
