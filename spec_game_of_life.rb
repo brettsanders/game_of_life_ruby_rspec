@@ -20,6 +20,7 @@ describe 'Game of life' do
       subject.should respond_to(:cols)
       subject.should respond_to(:cell_grid)
       subject.should respond_to(:live_neighbours_around_cell)
+      subject.should respond_to(:cells)
     end
 
     it 'should create proper cell grid on initialization' do
@@ -30,6 +31,11 @@ describe 'Game of life' do
           col.is_a?(Cell).should be_true
         end
       end
+    end
+
+    it 'should add all cells to cells array' do
+      # cell should equal because defaults 3 rows, 3 cols
+      subject.cells.count.should == 9
     end
 
     it 'should detect a live neighbour to the North' do

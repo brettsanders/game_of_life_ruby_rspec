@@ -17,15 +17,18 @@ class Game
 end
 
 class World
-  attr_accessor :rows, :cols, :cell_grid
+  attr_accessor :rows, :cols, :cell_grid, :cells
 
   def initialize(rows=3, cols=3)
     @rows = rows
     @cols = cols
+    @cells = []
 
     @cell_grid = Array.new(rows) do |row|
       Array.new(cols) do |col|
-        Cell.new(col, row)
+        cell = Cell.new(col, row)
+        cells << cell
+        cell
       end
     end
   end
