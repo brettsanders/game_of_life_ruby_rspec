@@ -179,5 +179,18 @@ describe 'Game of life' do
       end
     end
 
+    context 'Rule 3: Any live cell with more than 3 neighbours dies, as if by overcrowding' do
+      it 'should kill live cells with more than 3 live neighbours' do
+        game = Game.new(world, [[0, 1], [1, 1], [2, 1], [2, 2], [1, 2]])
+        world.live_neighbours_around_cell(world.cell_grid[1][1]).count.should == 4
+        game.tick!
+        world.cell_grid[0][1].should be_alive
+        world.cell_grid[1][1].should be_dead
+        world.cell_grid[2][1].should be_alive
+        world.cell_grid[2][2].should be_alive
+        world.cell_grid[1][2].should be_dead
+      end
+    end
+
   end
 end

@@ -28,6 +28,10 @@ class Game
       if cell.alive? && ([2, 3].include? world.live_neighbours_around_cell(cell).count)
         # don't do anything
       end
+      # Rule 3: live cells with 3 or more neighbours die
+      if cell.alive? && world.live_neighbours_around_cell(cell).count > 3
+        live_cells_to_die << cell
+      end
 
     end
 
