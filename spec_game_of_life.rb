@@ -6,6 +6,7 @@ require_relative 'game_of_life.rb'
 describe 'Game of life' do
   # creates new world object each time world is referenced
   let!(:world) { World.new }
+  let!(:cell) { Cell.new(1, 1) }
 
   context 'World' do
     subject { World.new }
@@ -32,10 +33,8 @@ describe 'Game of life' do
     end
 
     it 'should detect a neighbour to the North' do
-      subject.cell_grid[0][1].should be_dead
-      subject.cell_grid[0][1].alive = true
-      subject.cell_grid[0][1].should be_alive
-      subject.live_neighbours_around_cell(subject.cell_grid[1][1]).count.should == 1
+      subject.cell_grid[cell.y - 1][cell.x].alive = true
+      subject.live_neighbours_around_cell(cell).count.should == 1
     end
   end
 
