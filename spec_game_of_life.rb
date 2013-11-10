@@ -30,6 +30,13 @@ describe 'Game of life' do
         end
       end
     end
+
+    it 'should detect a neighbour to the North' do
+      subject.cell_grid[0][1].should be_dead
+      subject.cell_grid[0][1].alive = true
+      subject.cell_grid[0][1].should be_alive
+      subject.live_neighbours_around_cell(subject.cell_grid[1][1]).count.should == 1
+    end
   end
 
   context 'Cell' do

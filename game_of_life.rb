@@ -31,7 +31,14 @@ class World
   end
 
   def live_neighbours_around_cell(cell)
+    live_neighbours = []
 
+    # it detects a neighbour to the North
+    if cell.y > 0
+      candidate = self.cell_grid[cell.y - 1][cell.x]
+      live_neighbours << candidate if candidate.alive?
+    end
+    live_neighbours
   end
 
 end
@@ -46,7 +53,6 @@ class Cell
   end
 
   def alive?; alive; end
-
   def dead?; !alive; end
 
 end
