@@ -13,6 +13,14 @@ class GameOfLifeWindow < Gosu::Window
 
     # colors
     @background_color = Gosu::Color.new(0xffdedede)
+
+    # game itself
+    @cols = width/10
+    @rows = height/10
+    @world = World.new(@cols, @rows)
+    @game = Game.new(@world)
+    @game.world.randomly_populate
+
   end
 
   def update
