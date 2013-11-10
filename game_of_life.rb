@@ -32,11 +32,15 @@ class Game
       if cell.alive? && world.live_neighbours_around_cell(cell).count > 3
         live_cells_to_die << cell
       end
+      # Rule 4: dead cells with exactly 3 neighbors become alive
+      if cell.dead? && world.live_neighbours_around_cell(cell).count == 3
+        dead_cells_to_revive << cell
+      end
 
     end
 
-    # kill off the cells
     live_cells_to_die.each { |cell| cell.die! }
+    dead_cells_to_revive.each { |cell| cell.revive! }
   end
 end
 
